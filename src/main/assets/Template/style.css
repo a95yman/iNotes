@@ -1,0 +1,302 @@
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    -webkit-tap-highlight-color: transparent;
+
+}
+body{
+    min-height: 100vh;
+    background: #333;
+    overflow: hidden;
+}
+.mobile{
+    width: 100%;
+    height: 100vh;
+    background: rgb(253,253,253);
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+.circle{
+    border-radius: 50%;
+}
+.blue{
+    background: #5ba9ee;
+}
+.logo{
+    width: 230px;
+    height: 230px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0,0,0,0.3) 5px 5px 10px;
+}
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.full{
+    width: 100%;
+    height: 100%;
+}
+.absolute{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.relative{
+    position: absolute;
+}
+.column{
+    flex-direction: column;
+}
+.logo-img{
+    width: 90%;
+    height: 90%;
+}
+.title{
+    width: 90%;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 25px;
+    color: #333;
+}
+.sub-title{
+    width: 80%;
+    text-align: center;
+    font-size: 15px;
+    color: #666;
+}
+.next{
+    width: 270px;
+    height: 40px;
+    border: none;
+    outline: none;
+    background: linear-gradient(45deg,#95c5ef,#5ba9ee);
+    margin-top: 40px;
+    color: white;
+    border-radius: 20px;
+    font-size: 15px;
+    box-shadow: rgba(0,0,0,0.2) 5px 5px 30px;
+}
+.about{
+    width: 35px;
+    height: 35px;
+    background: url(assets/about.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+.inner{
+    width: 100%;
+    height: 100%;
+    position: relative; 
+}
+nav{
+    width: 100%;
+    height: 50px;
+    background: white;
+}
+.small-icon{
+    width: 25px;
+    height: 25px;
+}
+.shadow-top{
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(360deg, transparent, white);
+}
+.shadow-bottom{
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(360deg, white , transparent);
+}
+
+.search{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;    
+    background: white;
+}
+.search input{
+    width: 90%;
+    height: 40px;
+    border: none;
+    outline: none;
+}
+.notes{
+    width: 100%;
+    height: calc(100% - 150px );
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.menu {
+    width: 100%;
+    height: 80px;
+    background: white;
+    position: absolute;
+    bottom: 0;
+}
+#container{
+    width: 100%;
+    display: flex;
+}
+#left{
+    width: 50%;
+    padding-top: 30px;
+}
+#right{
+    width: 50%;
+    padding-top: 30px;
+}
+.card{
+    width: 100%;
+    position: relative;
+    top: 500px;
+    margin-top: 15px;
+    display: flex;
+    opacity: 0;
+    align-items: center;
+    justify-content: center;
+    word-break: break-all;
+    transition: 0.5s;
+}
+.card .card-inner{
+    width: 80%;
+    padding: 5%;
+    box-shadow: rgba(0,0,0,0.08) 10px 10px 20px;
+}
+.card .card-inner h1{
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 5px;
+    text-align: left;
+}
+.card .card-inner a{
+    font-size: 13px;
+    color: #666;
+    text-align: left;
+}
+.edittext{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.edittext .name{
+    z-index: 101;
+    height: 60px;
+    background: #5ba9ee;
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.edittext .name input{
+    width: 90%;
+    height: 80%;
+    background: transparent;
+    color: white;
+    border: none;
+    outline: none;
+}
+.edittext .name input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+.edittext .name input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white;
+}
+
+.edittext .name input::-ms-input-placeholder { /* Microsoft Edge */
+  color: white;
+}
+.edittext .colors-holder{
+    height: auto;
+    padding-top: 10px;
+    z-index: 10;
+    position: absolute;
+    bottom: 60px;
+    width: 100%;
+    white-space: nowrap;
+    background: white;
+    overflow-x: auto;
+    text-align: center;
+}
+.cl{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 7px;
+    margin-right: 7px;
+    margin-bottom: 0px;
+    box-shadow: rgba(0,0,0,0.1) 5px 5px 10px;
+    border: 1px solid #aaa;
+}
+.cl:nth-child(1){
+    background: #f5dfe9;
+}
+.cl:nth-child(2){
+    background: #dfecf5;
+}
+.cl:nth-child(3){
+    background: #f2fbf4;
+}
+.cl:nth-child(4){
+    background: #fbfce3;
+}
+.cl:nth-child(5){
+    background: #fce3e3;
+}
+.cl:nth-child(6){
+    background: #f8e3fc;
+}
+.cl:nth-child(7){
+    background: #e9d0b3;
+}
+.cl:nth-child(8){
+    background: #e7f5fa;
+}
+.edittext textarea{
+    width: 90%;
+    flex: 1;
+    font-size: 14px;
+
+    color: #333;
+    background: transparent;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border: none;
+    outline: none;
+    resize: none;
+    z-index: 101;
+}
+.edittext button{
+    width: 100%;
+    height: 60px;
+    margin-top: 70px;
+    background: #5ba9ee;
+    border: none;
+    outline: none;
+    color: white;
+    z-index: 201;
+    cursor: hand;
+}
+::-webkit-scrollbar{
+    width: 0;
+}

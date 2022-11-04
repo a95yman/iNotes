@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>iRight Notes</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
+</head>
+<body>
+<div class="mobile">
+    <div class="inner center column"  style="opacity: 0">
+        <div class="circle blue logo" style="transition: 0.5s">
+            <img src="assets/logo.png" class="logo-img"/>
+        </div>
+        <h1 class="title"  style="transition: 0.7s">iRight Notes</h1>
+        <a class="sub-title"  style="transition: 1s">Hi there, you are in the right place, go ahead and write multiple notes, plans or anything you want.</a>
+        <button class="next" onclick="getStarted()" style="z-index:400;transition: 1.2s">Get Started</button>
+        <div class="about" onclick="About()"  style="opacity: 0; transition: 1s"></div>
+    </div>
+    <div class="inner"  style="position: absolute; top: 100%; background: #fff; transition: 0.7s">
+
+        <nav class="relative center" style="justify-content: flex-start">
+            <img style="z-index: 2;margin-left: 10px" class="small-icon" src="assets/menu.png" onclick="HideMain()"/>
+            <div class="full center absolute">
+                <h4 style="color: #444">iRight Notes</h4>
+            </div>
+
+        </nav>
+        <div class="search">
+            <input oninput="Search(this)" id="searchinp" type="text" placeholder="Search for a note..."/>
+        </div>
+        <div class="notes relative">
+
+
+            <div id="container">
+
+                <div id="left">
+
+                </div>
+
+                <div id="right">
+
+                </div>
+
+            </div>
+            <div style="height: 50px"></div>
+
+
+
+
+        </div>
+        <div class="shadow-top absolute" style="top: 100px"></div>
+
+        <div class="shadow-bottom absolute" style="top: calc(100% - 120px)"></div>
+
+        <div class="menu center">
+            <img src="assets/add.png" style="z-index:400;width: 40px; height: 40px" onclick="ShowNote()"/>
+        </div>
+    </div>
+    <div class="inner"  style="position: absolute; top: 100%; height: 100%; background: #fff; transition: 0.7s">
+
+        <nav class="relative center" style="justify-content: flex-start">
+            <img style="z-index: 2;margin-left: 10px" class="small-icon" src="assets/exit.png" onclick="HideNote()"/>
+            <div class="full center absolute">
+                <h4 style="color: #444">iRight Notes</h4>
+            </div>
+            <img style="position: absolute;;z-index: 2;right: 10px" class="small-icon"
+                 src="assets/delete.png" onclick="Delete()" id="delete"/>
+        </nav>
+        <div class="edittext">
+            <div class="name">
+                <input id="title2" oninput="DoClick()" type="text" placeholder="Type your note title..."/>
+            </div>
+            <textarea id="body" oninput="DoClick()" placeholder="Write something..."></textarea>
+            <div class="relative full" id="cols">
+                <div class="colors-holder">
+
+                    <span class="cl"></span>
+                    <span class="cl"></span>
+                    <span class="cl"></span>
+                    <span class="cl"></span>
+                    <span class="cl"></span>
+                    <span class="cl"></span>
+                    <span class="cl"></span>
+                    <span class="cl"></span>
+                    <span class="cl" style="background: white"></span>
+
+
+                </div>
+            </div>
+            <button id="sv" onclick="SaveNote()" style="z-index: 500">Save Note</button>
+        </div>
+
+
+
+    </div>
+
+    <div class="inner center column" style="position: absolute; left: -100%; top: 0;">
+
+        <div style="height: 100%; width: 100%" class="center column relative">
+            <div class="about" style="background: url(assets/exit.png); background-size: 35px 35px;" onclick="HideResources()"></div>
+
+            <img src="assets/note.png" style="width: 100px; height: 100px; margin-bottom: 10px"/>
+
+            <h1 style="text-align: left" class="title">iRight Notes was made using the following resources</h1>
+            <a style="text-align: left" class="sub-title">Icons: https://www.flaticon.com/</a>
+            <br>
+            <a style="text-align: left" class="sub-title">IDE: Android Studio - Java</a>
+            <br>
+            <a style="text-align: left" class="sub-title">Programmer: Ayman Atif</a>
+            <button onclick="ContactDeveloper()" class="next">Contact Programmer</button>
+        </div>
+
+    </div>
+
+</div>
+<script type="text/javascript">
+var chosenCol = "white";
+var title, body;
+            var click = true;
+var go = true;
+var newNote = true;
+            var left = document.getElementById("left");
+            var right = document.getElementById("right");
+            var isLeft = true;
+            var inners = document.getElementsByClassName("inner");
+            var height = screen.height;
+            inners[0].getElementsByTagName("div")[0].style.transform="translateY("+height+"px)";
+            inners[0].getElementsByTagName("h1")[0].style.transform="translateY("+height+"px)";
+            inners[0].getElementsByTagName("a")[0].style.transform="translateY("+height+"px)";
+            inners[0].getElementsByTagName("button")[0].style.transform="translateY("+height+"px)";
+            window.addEventListener("load", function(){
+                setTimeout(function(){
+                    inners[0].style.opacity="1";
+                    document.getElementsByClassName('about')[0].style.opacity="1";
+            inners[0].getElementsByTagName("div")[0].style.transform="translateY(0px)";
+            inners[0].getElementsByTagName("h1")[0].style.transform="translateY(0px)";
+            inners[0].getElementsByTagName("a")[0].style.transform="translateY(0px)";
+            inners[0].getElementsByTagName("button")[0].style.transform="translateY(0px)";
+                }, 500);
+            }, false);
+            function getStarted(){
+
+
+
+            if(!go) return;
+            document.getElementById("searchinp").value="";
+            go = false;
+            setTimeout(function(){
+                    Android.getI(1);
+                    go = true;
+                }, 1900);
+                        //isLeft=true;
+                //left.innerHTML="";
+                //right.innerHTML="";
+                    document.getElementsByClassName('about')[0].style.transform="translateX(100px)";
+                inners[0].getElementsByTagName("div")[0].style.transform="translateY(-"+height+"px)";
+                inners[0].getElementsByTagName("div")[0].style.transition="1s";
+            inners[0].getElementsByTagName("h1")[0].style.transform="translateY(-"+height+"px)";
+                inners[0].getElementsByTagName("h1")[0].style.transition="1.3s";
+            inners[0].getElementsByTagName("a")[0].style.transform="translateY(-"+height+"px)";
+                inners[0].getElementsByTagName("a")[0].style.transition="1.6s";
+            inners[0].getElementsByTagName("button")[0].style.transform="translateY(-"+height+"px)";
+                inners[0].getElementsByTagName("button")[0].style.transition="1.9s";
+                setTimeout(function(){
+                 inners[1].style.top="0";
+                 isLeft=true;
+            add=100;
+            left.innerHTML="";
+            right.innerHTML="";
+                    setTimeout(function(){
+
+
+
+
+                Ref();
+
+                    }, 800);
+                },1000);
+            }
+
+
+
+
+             var colors = [];
+            colors.push("#f5dfe9");
+            colors.push("#dfecf5");
+            colors.push("#f2fbf4");
+            colors.push("#fbfce3");
+            colors.push("#fce3e3");
+            colors.push("#f8e3fc");
+            colors.push("#e9d0b3");
+            colors.push("#e7f5fa");
+            //colors.push("");
+
+            var col;
+            var add = 100;
+            function AddCard(title,text){
+                col = colors[Math.floor(Math.random() * colors.length)];
+                var card = document.createElement("div");
+
+                if(text.split(";")[0].trim() !="white")
+                col = text.split(";")[0];
+
+                card.classList.add("card");
+
+
+                    for(var  i=0;i<text.length;i++)
+                    text = text.replace(" iRight_00000000003 ","<br>");
+                title = decodeString(title);
+                text = decodeString(text);
+
+                if(text.length > 200){
+
+                    if(text.length < 500)
+                    text = text.substring(0, 150) + text.substring(150, randomIntFromInterval(150, text.length));
+                    else text = text.substring(0, 150) + text.substring(150, randomIntFromInterval(150, 500));
+                    text+="...";
+                }
+
+
+
+
+                var html = "<div onclick=\"EditNote(this, '"+returnString(title)+"')\" class='card-inner' style=\"background: "+col+"\"><h1>"+title+"</h1><a>"+text.split(";")[1]+"</a></div>";
+                card.innerHTML=html;
+                if(isLeft){
+                    isLeft=false;
+                    card.style.left="1%";
+                    left.appendChild(card);
+                }
+                else{
+                    isLeft=true;
+                    card.style.right="1%";
+                    right.appendChild(card);
+                }
+                setTimeout(function(){
+                    card.style.opacity="1";
+                card.style.top="0";
+                }, add);
+                add+=100;
+            }
+
+            function randomIntFromInterval(min, max) { // min and max included
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+
+            var element="";
+            function ShowNote(){
+            if(!go) return;
+            document.getElementsByClassName("edittext")[0].style.background="white";
+            chosenCol="white";
+            document.getElementById("cols").style.display="inline-block";
+            document.getElementById("delete").style.display="none";
+            newNote = true;
+            go = false;
+            setTimeout(function(){
+                    Android.getI(2);
+                    go = true;
+                }, 800);
+                document.querySelector(".edittext textarea").value="";
+                document.getElementById("title2").value="";
+                inners[1].style.top="-100%";
+                inners[2].style.top="0";
+            }
+            function HideNote(){
+            if(!go) return;
+            go = false;
+            setTimeout(function(){
+                    Android.getI(1);
+                    go = true;
+                    click = true;
+                }, 800);
+                inners[2].style.top="100%";
+                inners[1].style.top="0";
+            }
+
+            function EditNote(el,title){
+            if(!go) return;
+            document.getElementById("delete").style.display="block";
+            document.getElementById("cols").style.display="none";
+            newNote = false;
+            go = false;
+            setTimeout(function(){
+                    Android.getI(2);
+                     go = true;
+                }, 800);
+
+                element = el;
+
+
+
+                inners[1].style.top="-100%";
+                inners[2].style.top="0";
+
+
+                    title = element.getElementsByTagName("h1")[0].innerHTML;
+
+                title = returnString(title);
+
+
+                Android.Edit(title);
+
+                //document.querySelector(".edittext textarea").value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+            }
+
+            function Search(txt){
+                isLeft=true;
+                left.innerHTML="";
+                right.innerHTML="";
+                add=500;
+                if(txt.value.trim().length>0)
+                    Android.Search(txt.value);
+                    else {
+                      add=100;
+            left.innerHTML="";
+            right.innerHTML="";
+                    Ref();
+                   }
+
+            }
+
+
+
+            var width = screen.width;
+
+            function About(){
+            if(!go) return;
+            go = false;
+            setTimeout(function(){
+                    Android.getI(-1);
+                    go = true;
+                }, 1700);
+                document.getElementsByClassName('about')[0].style.transform="translateX(100px)";
+                inners[0].getElementsByTagName("div")[0].style.transform="translateX("+width+"px)";
+                inners[0].getElementsByTagName("div")[0].style.transition="0.5s";
+            inners[0].getElementsByTagName("h1")[0].style.transform="translateX("+width+"px)";
+                inners[0].getElementsByTagName("h1")[0].style.transition="0.7s";
+            inners[0].getElementsByTagName("a")[0].style.transform="translateX("+width+"px)";
+                inners[0].getElementsByTagName("a")[0].style.transition="1s";
+            inners[0].getElementsByTagName("button")[0].style.transform="translateX("+width+"px)";
+                inners[0].getElementsByTagName("button")[0].style.transition="1.2s";
+
+                setTimeout(function(){
+                inners[3].style.left="0";
+                inners[3].style.transition="1s";
+                }, 800);
+
+
+            }
+
+            function HideResources(){
+            if(!go) return;
+            go = false;
+            setTimeout(function(){
+                    Android.getI(0);
+                    go = true;
+                }, 1700);
+                inners[3].style.left="-100%";
+                inners[3].style.transition="1s";
+
+                setTimeout(function(){
+                document.getElementsByClassName('about')[0].style.transform="translateX(0px)";
+                inners[0].getElementsByTagName("div")[0].style.transform="translateX(0px)";
+                inners[0].getElementsByTagName("div")[0].style.transition="0.5s";
+            inners[0].getElementsByTagName("h1")[0].style.transform="translateX(0px)";
+                inners[0].getElementsByTagName("h1")[0].style.transition="0.7s";
+            inners[0].getElementsByTagName("a")[0].style.transform="translateX(0px)";
+                inners[0].getElementsByTagName("a")[0].style.transition="1s";
+            inners[0].getElementsByTagName("button")[0].style.transform="translateX(0px)";
+                inners[0].getElementsByTagName("button")[0].style.transition="1.2s";
+                }, 500);
+
+
+            }
+
+            function HideMain(){
+            if(!go) return;
+
+            go = false;
+            setTimeout(function(){
+                    Android.getI(0);
+                    go = true;
+                }, 1100);
+                inners[1].style.top="100%";
+                setTimeout(function(){
+
+                    document.getElementsByClassName('about')[0].style.transform="translateX(0px)";
+
+                     inners[0].getElementsByTagName("div")[0].style.transform="translateY(0px)";
+                    inners[0].getElementsByTagName("div")[0].style.transition="1.9s";
+            inners[0].getElementsByTagName("h1")[0].style.transform="translateY(0px)";
+                    inners[0].getElementsByTagName("h1")[0].style.transition="1.6s";
+            inners[0].getElementsByTagName("a")[0].style.transform="translateY(0px)";
+                    inners[0].getElementsByTagName("a")[0].style.transition="1.3s";
+            inners[0].getElementsByTagName("button")[0].style.transform="translateY(0px)";
+                    inners[0].getElementsByTagName("button")[0].style.transition="1s";
+
+                }, 500);
+            }
+
+            function Ref(){
+
+                Android.Start();
+
+            }
+
+
+        var s="";
+        function returnString(str){
+        // ' /iRight_00000000001
+        // \" /iRight_00000000002
+        // \n /iRight_00000000003
+        // \\ /iRight_00000000004
+
+        s = str;
+        for(var  i=0;i<str.length;i++){
+        s = s.replace("'"," iRight_00000000001 ");
+        s = s.replace("\""," iRight_00000000002 ");
+        s = s.replace("\\\n"," iRight_00000000005 ");
+        s = s.replace("\n"," iRight_00000000003 ");
+        s = s.replace("\\"," iRight_00000000004 ");
+        }
+            return s;
+        }
+
+        var s2="";
+        function decodeString(str){
+        s2 = str;
+        for(var  i=0;i<str.length;i++){
+        s2 = s2.replace(" iRight_00000000001 ","'");
+        s2 = s2.replace(" iRight_00000000002 ", "\"");
+        s2 = s2.replace(" iRight_00000000005 ","\\\n");
+        s2 = s2.replace(" iRight_00000000003 ","\n");
+        s2 = s2.replace(" iRight_00000000004 ", "\\");
+        }
+        return s2;
+        }
+
+
+            function SaveNote(){
+            if(!click) return;
+            click=false;
+            title = document.getElementById("title2").value;
+            body = document.getElementById("body").value;
+
+
+
+            title = returnString(title);
+            body = returnString(body);
+
+            if(newNote){
+
+            Android.Save(title, body, chosenCol);
+
+            }
+            else{
+
+
+
+            Android.Modify(title, body, chosenCol);
+
+
+
+
+                for(var  i=0;i<body.length;i++)
+               body = body.replace(" iRight_00000000003 ","<br>");
+            //body = body.replace("\n","<br>");
+
+
+            title = decodeString(title);
+            body = decodeString(body);
+
+
+            if(body.length > 200){
+
+                    if(body.length < 500)
+                    body = body.substring(0, 150) + body.substring(150, randomIntFromInterval(150, body.length));
+                    else body = body.substring(0, 150) + body.substring(40, randomIntFromInterval(150, 500));
+                    body+="...";
+                }
+
+
+            element.getElementsByTagName("h1")[0].innerHTML = title;
+            element.getElementsByTagName("a")[0].innerHTML = body;
+
+
+
+
+
+
+
+
+            }
+            }
+
+
+
+            function Do1(title, body){
+            AddCard(title, body);
+            go = true;
+            HideNote();
+            }
+
+            function DoClick(){
+            click=true;
+            }
+
+        function Modify(title, body){
+
+        //body = body.replace("<br>","\n");
+
+
+        title = decodeString(title);
+        body = decodeString(body);
+
+
+        document.querySelector(".edittext textarea").value=body.split(";")[1];
+                document.getElementById("title2").value=title;
+                chosenCol = body.split(";")[0];
+
+
+document.getElementsByClassName("edittext")[0].style.background=chosenCol;
+        }
+
+        function Delete(){
+        document.getElementById("searchinp").value="";
+        Android.Delete(returnString(element.getElementsByTagName("h1")[0].innerHTML));
+        }
+
+        function ContactDeveloper(){
+        Android.dev();
+        }
+
+            var cls = document.getElementsByClassName("cl");
+    for(var i=0; i<cls.length; i++){
+        clClick(cls[i], i);
+    }
+    function clClick(cl, i){
+        cl.onclick=function(){
+            if(i >= colors.length)
+          {
+          chosenCol = "white";
+          document.getElementsByClassName("edittext")[0].style.background="white";
+          }
+          else {
+
+          document.getElementsByClassName("edittext")[0].style.background=colors[i];
+          chosenCol=colors[i];
+          }
+        };
+    }
+
+
+function RestartApp(){
+            isLeft=true;
+                left.innerHTML="";
+                right.innerHTML="";
+                add=500;
+                HideNote();
+                Ref();
+            }
+
+        </script>
+</body>
+</html>

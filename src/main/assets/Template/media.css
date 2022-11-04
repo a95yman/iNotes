@@ -1,0 +1,32 @@
+@media (max-width: 400px){
+    .mobile{
+        width: 100%;
+    }
+}
+
+
+@media (min-width: 600px){
+    .title{
+        font-size: 45px;
+    }
+    .sub-title{
+        font-size: 25px;
+    }
+    .next{
+        width: 400px;
+        height: 60px;
+        font-size: 30px;
+    }
+    .card .card-inner h1{
+        font-size: 30px;
+    }
+    .card .card-inner a{
+        font-size: 22px;
+    }
+    .edittext textarea{
+        font-size: 25px;
+        }
+        #title2, #searchinp, #sv{
+        font-size: 20px;
+        }
+}
